@@ -17,28 +17,28 @@
     </div><!--Actions-->
     <div class="container">
         <h1 class="title">
-            Listagem das Permissions
+            Listagem dos Users
         </h1>
 
         <table class="table table-hover">
             <tr>
                 <th>Name</th>
-                <th>label</th>
+                <th>E-mail</th>
                 <th width="150px">Ações</th>
             </tr>
-
-            @forelse($roles as $role)
+            @can('root')
+            @forelse($users as $user)
                 <tr>
-                    <td> {{$role->name}}</td>
-                    <td> {{$role->label}}</td>
+                    <td> {{$user->name}}</td>
+                    <td> {{$user->email}}</td>
                     <td>
-                        <a href="{{url("/painel/role/$role->id/permissions")}}" class="permission">
+                        <a href="{{url("/painel/user/$user->id/roles")}}" class="permission">
                             <i class="fa fa-lock"></i>
                         </a>
-                        <a href="{{url("/painel/role/$role->id/edit")}}" class="edit">
+                        <a href="{{url("/painel/post/$user->id/edit")}}" class="edit">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
-                        <a href="{{url("/painel/role/$role->id/delete")}}" class="delete">
+                        <a href="{{url("/painel/post/$user->id/delete")}}" class="delete">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
@@ -46,7 +46,20 @@
             @empty
                 <tr> <td colspan="90"> <p> Nenhum resultado </p> </td></tr>
             @endforelse
-
+            @else
+                <tr>
+                    <td> {{\Illuminate\Support\Facades\Auth::user()->name}}</td>
+                    <td> {{\Illuminate\Support\Facades\Auth::user()->email}}</td>
+                    <td>
+                        <a href="{{url("/painel/user/Auth::user()->id/roles")}}" class="permission">
+                            <i class="fa fa-lock"></i>
+                        </a>
+                        <a href="{{url("/painel/post/Auth::user()->id/edit")}}" class="edit">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
+                    </td>
+                </tr>
+            @endcan
         </table>
     </div>
 @endsection

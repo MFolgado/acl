@@ -17,14 +17,14 @@
     </div><!--Actions-->
     <div class="container">
         <h1 class="title">
-            Listagem das Permissions
+            Roles: <b> {{$permission->name}} </b>
         </h1>
 
         <table class="table table-hover">
             <tr>
                 <th>Name</th>
                 <th>label</th>
-                <th width="150px">Ações</th>
+                <th width="100px">Ações</th>
             </tr>
 
             @forelse($roles as $role)
@@ -32,12 +32,6 @@
                     <td> {{$role->name}}</td>
                     <td> {{$role->label}}</td>
                     <td>
-                        <a href="{{url("/painel/role/$role->id/permissions")}}" class="permission">
-                            <i class="fa fa-lock"></i>
-                        </a>
-                        <a href="{{url("/painel/role/$role->id/edit")}}" class="edit">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
                         <a href="{{url("/painel/role/$role->id/delete")}}" class="delete">
                             <i class="fa fa-trash"></i>
                         </a>

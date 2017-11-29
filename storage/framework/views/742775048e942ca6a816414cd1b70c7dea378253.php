@@ -1,6 +1,4 @@
-@extends('painel.templates.template')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!--Filters and actions-->
     <div class="actions">
@@ -17,7 +15,7 @@
     </div><!--Actions-->
     <div class="container">
         <h1 class="title">
-            Listagem das Permissions
+            Listagem das Permissons
         </h1>
 
         <table class="table table-hover">
@@ -27,26 +25,27 @@
                 <th width="150px">Ações</th>
             </tr>
 
-            @forelse($roles as $role)
+            <?php $__empty_1 = true; $__currentLoopData = $permissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $permission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <tr>
-                    <td> {{$role->name}}</td>
-                    <td> {{$role->label}}</td>
+                    <td> <?php echo e($permission->name); ?></td>
+                    <td> <?php echo e($permission->label); ?></td>
                     <td>
-                        <a href="{{url("/painel/role/$role->id/permissions")}}" class="permission">
-                            <i class="fa fa-lock"></i>
+                        <a href="<?php echo e(url("/painel/permission/$permission->id/roles")); ?>" class="permission">
+                            <i class="fa fa-unlock"></i>
                         </a>
-                        <a href="{{url("/painel/role/$role->id/edit")}}" class="edit">
+                        <a href="<?php echo e(url("/painel/permission/$permission->id/edit")); ?>" class="edit">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
-                        <a href="{{url("/painel/role/$role->id/delete")}}" class="delete">
+                        <a href="<?php echo e(url("/painel/permission/$permission->id/delete")); ?>" class="delete">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>
                 </tr>
-            @empty
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <tr> <td colspan="90"> <p> Nenhum resultado </p> </td></tr>
-            @endforelse
+            <?php endif; ?>
 
         </table>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('painel.templates.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

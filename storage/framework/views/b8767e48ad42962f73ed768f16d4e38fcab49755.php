@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><?php echo e(isset($titulo) ? $titulo : "painel ACL - Curso de Laravel"); ?></title>
+    <title><?php echo e(isset($titulo) ? $titulo : "painel"); ?></title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -23,36 +23,41 @@
 <div class="menu">
     <ul class="menu col-md-12">
         <li class="col-md-2 text-center">
-            <a href="home">
+            <a href="/painel">
                 <img src="<?php echo e(url("assets/painel/imgs/acl-branca.png")); ?>" alt="acl" class="logo">
             </a>
         </li>
         <li class="col-md-2 text-center">
-            <a href="relatorios">
+            <a href="/painel/users">
                 <img src="<?php echo e(url("assets/painel/imgs/perfil-acl.png")); ?>" alt="Meu Perfil" class="img-menu">
                 <h1>Usuários</h1>
             </a>
         </li>
+        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view_post')): ?>
         <li class="col-md-2 text-center">
-            <a href="relatorios">
+            <a href="/painel/posts">
                 <img src="<?php echo e(url("assets/painel/imgs/noticias-acl.png")); ?>" alt="Estilos" class="img-menu">
                 <h1>Notícias</h1>
             </a>
         </li>
+        <?php endif; ?>
+
+        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('root')): ?>
         <li class="col-md-2 text-center">
-            <a href="relatorios">
+            <a href="/painel/roles">
                 <img src="<?php echo e(url("assets/painel/imgs/funcao-acl.png")); ?>" alt="Albuns" class="img-menu">
                 <h1>Funções</h1>
             </a>
         </li>
         <li class="col-md-2 text-center">
-            <a href="relatorios">
+            <a href="/painel/permissions">
                 <img src="<?php echo e(url("assets/painel/imgs/permissao-acl.png")); ?>" alt="Musicas" class="img-menu">
                 <h1>Permissões</h1>
             </a>
         </li>
+        <?php endif; ?>
         <li class="col-md-2 text-center">
-            <a href="relatorios">
+            <a href="/logout">
                 <img src="<?php echo e(url("assets/painel/imgs/sair-acl.png")); ?>" alt="Sair" class="img-menu">
                 <h1>Sair</h1>
             </a>

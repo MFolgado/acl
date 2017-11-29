@@ -17,7 +17,7 @@
     </div><!--Actions-->
     <div class="container">
         <h1 class="title">
-            Listagem das Permissions
+            Listagem das Permissons
         </h1>
 
         <table class="table table-hover">
@@ -27,18 +27,18 @@
                 <th width="150px">Ações</th>
             </tr>
 
-            @forelse($roles as $role)
+            @forelse($permissions as $permission)
                 <tr>
-                    <td> {{$role->name}}</td>
-                    <td> {{$role->label}}</td>
+                    <td> {{$permission->name}}</td>
+                    <td> {{$permission->label}}</td>
                     <td>
-                        <a href="{{url("/painel/role/$role->id/permissions")}}" class="permission">
-                            <i class="fa fa-lock"></i>
+                        <a href="{{url("/painel/permission/$permission->id/roles")}}" class="permission">
+                            <i class="fa fa-unlock"></i>
                         </a>
-                        <a href="{{url("/painel/role/$role->id/edit")}}" class="edit">
+                        <a href="{{url("/painel/permission/$permission->id/edit")}}" class="edit">
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
-                        <a href="{{url("/painel/role/$role->id/delete")}}" class="delete">
+                        <a href="{{url("/painel/permission/$permission->id/delete")}}" class="delete">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>

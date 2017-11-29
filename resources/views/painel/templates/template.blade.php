@@ -33,12 +33,16 @@
                 <h1>Usuários</h1>
             </a>
         </li>
+        @can('view_post')
         <li class="col-md-2 text-center">
             <a href="/painel/posts">
                 <img src="{{url("assets/painel/imgs/noticias-acl.png")}}" alt="Estilos" class="img-menu">
                 <h1>Notícias</h1>
             </a>
         </li>
+        @endcan
+
+        @can('root')
         <li class="col-md-2 text-center">
             <a href="/painel/roles">
                 <img src="{{url("assets/painel/imgs/funcao-acl.png")}}" alt="Albuns" class="img-menu">
@@ -51,6 +55,7 @@
                 <h1>Permissões</h1>
             </a>
         </li>
+        @endcan
         <li class="col-md-2 text-center">
             <a href="/logout">
                 <img src="{{url("assets/painel/imgs/sair-acl.png")}}" alt="Sair" class="img-menu">
