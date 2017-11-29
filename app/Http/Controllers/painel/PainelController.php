@@ -19,7 +19,10 @@ class PainelController extends Controller
         $permissions = Permission::count();
         $posts = Post::count();
 
+
         return view('painel.home.index', compact('users', 'roles', 'permissions', 'posts'));
+
+
     }
 
 }

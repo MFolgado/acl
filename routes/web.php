@@ -22,11 +22,12 @@
 
 Route::group(['prefix' => 'painel'], function(){
 
+    Route::get('posts', 'painel\PostController@index');
 
-    Route::get('/', 'Painel\PainelController@index');
+    Route::get('/', 'painel\PainelController@index');
 
 });
 
 Auth::routes();
 
-Route::get('/', 'SiteController@index');
+Route::get('/', 'portal\SiteController@index');

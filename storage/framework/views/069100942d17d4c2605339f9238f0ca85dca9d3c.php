@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{$titulo or "painel"}}</title>
+    <title><?php echo e(isset($titulo) ? $titulo : "painel"); ?></title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -14,46 +14,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!--CSS-->
-    <link rel="stylesheet" href="{{url("assets/painel/css/acl-painel.css")}}">
+    <link rel="stylesheet" href="<?php echo e(url("assets/painel/css/acl-painel.css")); ?>">
 
     <!--Favicon-->
-    <link rel="icon" type="image/png" href="{{url("assets/painel/imgs/favicon-acl.png")}}">
+    <link rel="icon" type="image/png" href="<?php echo e(url("assets/painel/imgs/favicon-acl.png")); ?>">
 </head>
 <body>
 <div class="menu">
     <ul class="menu col-md-12">
         <li class="col-md-2 text-center">
             <a href="/painel">
-                <img src="{{url("assets/painel/imgs/acl-branca.png")}}" alt="acl" class="logo">
+                <img src="<?php echo e(url("assets/painel/imgs/acl-branca.png")); ?>" alt="acl" class="logo">
             </a>
         </li>
         <li class="col-md-2 text-center">
             <a href="/painel/users">
-                <img src="{{url("assets/painel/imgs/perfil-acl.png")}}" alt="Meu Perfil" class="img-menu">
+                <img src="<?php echo e(url("assets/painel/imgs/perfil-acl.png")); ?>" alt="Meu Perfil" class="img-menu">
                 <h1>Usuários</h1>
             </a>
         </li>
         <li class="col-md-2 text-center">
             <a href="/painel/posts">
-                <img src="{{url("assets/painel/imgs/noticias-acl.png")}}" alt="Estilos" class="img-menu">
+                <img src="<?php echo e(url("assets/painel/imgs/noticias-acl.png")); ?>" alt="Estilos" class="img-menu">
                 <h1>Notícias</h1>
             </a>
         </li>
         <li class="col-md-2 text-center">
             <a href="/painel/roles">
-                <img src="{{url("assets/painel/imgs/funcao-acl.png")}}" alt="Albuns" class="img-menu">
+                <img src="<?php echo e(url("assets/painel/imgs/funcao-acl.png")); ?>" alt="Albuns" class="img-menu">
                 <h1>Funções</h1>
             </a>
         </li>
         <li class="col-md-2 text-center">
             <a href="/painel/permissions">
-                <img src="{{url("assets/painel/imgs/permissao-acl.png")}}" alt="Musicas" class="img-menu">
+                <img src="<?php echo e(url("assets/painel/imgs/permissao-acl.png")); ?>" alt="Musicas" class="img-menu">
                 <h1>Permissões</h1>
             </a>
         </li>
         <li class="col-md-2 text-center">
             <a href="/logout">
-                <img src="{{url("assets/painel/imgs/sair-acl.png")}}" alt="Sair" class="img-menu">
+                <img src="<?php echo e(url("assets/painel/imgs/sair-acl.png")); ?>" alt="Sair" class="img-menu">
                 <h1>Sair</h1>
             </a>
         </li>
@@ -62,24 +62,24 @@
 
 <div class="clear"></div>
 
-{{--<!--Filters and actions-->--}}
-{{--<div class="actions">--}}
-    {{--<div class="container">--}}
-        {{--<a class="add" href="forms">--}}
-            {{--<i class="fa fa-plus-circle"></i>--}}
-        {{--</a>--}}
 
-        {{--<form class="form-search form form-inline">--}}
-            {{--<input type="text" name="pesquisar" placeholder="Pesquisar?" class="form-control">--}}
-            {{--<input type="submit" name="pesquisar" value="Encontrar" class="btn btn-success">--}}
-        {{--</form>--}}
-    {{--</div>--}}
-{{--</div><!--Actions-->--}}
+
+    
+        
+            
+        
+
+        
+            
+            
+        
+    
+
 
 <div class="clear"></div>
 
 <!--Content Dinâmico-->
-@yield('content')
+<?php echo $__env->yieldContent('content'); ?>
 
 
 <div class="clear"></div>

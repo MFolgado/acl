@@ -17,7 +17,7 @@ class Address extends \Faker\Provider\en_US\Address
         'Busembatya','Bushenyi','Busia','Busolwe','Butaleja','Buwenge',
         'Dokolo',
         'Entebbe',
-        'Fort Portal',
+        'Fort portal',
         'Gulu',
         'Hima','Hoima',
         'Ibanda','Iganga','Isingiro',
@@ -76,7 +76,7 @@ class Address extends \Faker\Provider\en_US\Address
     protected static $region = array( 'Central', 'East', 'North', 'West' );
 
     /**
-     * @example 'Fort Portal'
+     * @example 'Fort portal'
      */
     public static function cityName()
     {
