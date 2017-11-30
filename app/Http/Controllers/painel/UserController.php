@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -17,15 +18,21 @@ class UserController extends Controller
 
     public function index(){
         $users = $this->user->all();
+        if(Gate::denies('user')){
+            return redirect()->back();
+        }
 
         return view('painel.users.index', compact('users'));
     }
 
     public function roles($id){
 
+
+
         $user = $this->user->find($id);
 
         $roles = $user->roles;
+
 
         return view('painel.users.roles', compact('roles', 'user'));
 

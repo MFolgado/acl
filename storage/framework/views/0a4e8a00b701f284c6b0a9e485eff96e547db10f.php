@@ -1,5 +1,4 @@
 <?php $__env->startSection('content'); ?>
-
     <div class="relatorios">
         <div class="container">
             <ul class="relatorios">

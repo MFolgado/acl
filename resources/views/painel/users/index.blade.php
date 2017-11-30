@@ -26,7 +26,6 @@
                 <th>E-mail</th>
                 <th width="150px">Ações</th>
             </tr>
-            @can('root')
             @forelse($users as $user)
                 <tr>
                     <td> {{$user->name}}</td>
@@ -46,20 +45,7 @@
             @empty
                 <tr> <td colspan="90"> <p> Nenhum resultado </p> </td></tr>
             @endforelse
-            @else
-                <tr>
-                    <td> {{\Illuminate\Support\Facades\Auth::user()->name}}</td>
-                    <td> {{\Illuminate\Support\Facades\Auth::user()->email}}</td>
-                    <td>
-                        <a href="{{url("/painel/user/Auth::user()->id/roles")}}" class="permission">
-                            <i class="fa fa-lock"></i>
-                        </a>
-                        <a href="{{url("/painel/post/Auth::user()->id/edit")}}" class="edit">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                    </td>
-                </tr>
-            @endcan
+
         </table>
     </div>
 @endsection

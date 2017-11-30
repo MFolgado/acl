@@ -24,7 +24,6 @@
                 <th>E-mail</th>
                 <th width="150px">Ações</th>
             </tr>
-            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('root')): ?>
             <?php $__empty_1 = true; $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <tr>
                     <td> <?php echo e($user->name); ?></td>
@@ -44,20 +43,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <tr> <td colspan="90"> <p> Nenhum resultado </p> </td></tr>
             <?php endif; ?>
-            <?php else: ?>
-                <tr>
-                    <td> <?php echo e(\Illuminate\Support\Facades\Auth::user()->name); ?></td>
-                    <td> <?php echo e(\Illuminate\Support\Facades\Auth::user()->email); ?></td>
-                    <td>
-                        <a href="<?php echo e(url("/painel/user/Auth::user()->id/roles")); ?>" class="permission">
-                            <i class="fa fa-lock"></i>
-                        </a>
-                        <a href="<?php echo e(url("/painel/post/Auth::user()->id/edit")); ?>" class="edit">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                    </td>
-                </tr>
-            <?php endif; ?>
+
         </table>
     </div>
 <?php $__env->stopSection(); ?>

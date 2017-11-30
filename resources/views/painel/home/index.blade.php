@@ -1,7 +1,6 @@
 @extends('painel.templates.template')
 
 @section('content')
-
     <div class="relatorios">
         <div class="container">
             <ul class="relatorios">

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Painel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Permission;
+use Illuminate\Support\Facades\Gate;
 
 class PermissionController extends Controller
 {
@@ -13,6 +14,8 @@ class PermissionController extends Controller
 
     public function __construct(Permission $permission){
         $this->permission = $permission;
+        $this->checkGate();
+
     }
 
 

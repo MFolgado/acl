@@ -27,12 +27,21 @@
                 <img src="<?php echo e(url("assets/painel/imgs/acl-branca.png")); ?>" alt="acl" class="logo">
             </a>
         </li>
+        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('user')): ?>
         <li class="col-md-2 text-center">
             <a href="/painel/users">
                 <img src="<?php echo e(url("assets/painel/imgs/perfil-acl.png")); ?>" alt="Meu Perfil" class="img-menu">
                 <h1>Usuários</h1>
             </a>
         </li>
+        <?php else: ?>
+            <li class="col-md-2 text-center">
+                
+                    <img src="<?php echo e(url("assets/painel/imgs/perfil-acl.png")); ?>" alt="Meu Perfil" class="img-menu">
+                    <h1>Usuários</h1>
+                
+            </li>
+        <?php endif; ?>
         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view_post')): ?>
         <li class="col-md-2 text-center">
             <a href="/painel/posts">
